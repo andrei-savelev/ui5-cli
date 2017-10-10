@@ -21,8 +21,8 @@
     "chalk": "^2.1.0",
     "clui": "^0.3.6",
     "get-installed-path": "^4.0.5",
-    "gulp": "^3.9.1",
     "inquirer": "^3.3.0",
-    "simple-git": "^1.79.0"
+    "simple-git": "^1.79.0",
+    "yargs": "^9.0.1"
   }
 }
