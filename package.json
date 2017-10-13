@@ -7,6 +7,8 @@
     "git": "https://github.com/andreysavelev/ui5-cli"
   },
   "scripts": {
+    "lint": "node_modules/.bin/eslint --fix run.js",
+    "lint:watch":"watch 'npm run lint' run.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -24,6 +26,8 @@
     "chalk": "^2.1.0",
     "clui": "^0.3.6",
     "eslint": "^4.8.0",
+    "eslint-config-airbnb-base": "^12.0.2",
+    "eslint-plugin-import": "^2.7.0",
     "get-installed-path": "^4.0.5",
     "inquirer": "^3.3.0",
     "simple-git": "^1.79.0",
