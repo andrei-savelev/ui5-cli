@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "The command-line interface for the creation of applications based on SAPUI5",
   "main": "run.js",
+  "repository": {
+    "git": "https://github.com/andreysavelev/ui5-cli"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -20,6 +23,7 @@
   "devDependencies": {
     "chalk": "^2.1.0",
     "clui": "^0.3.6",
+    "eslint": "^4.8.0",
     "get-installed-path": "^4.0.5",
     "inquirer": "^3.3.0",
     "simple-git": "^1.79.0",
