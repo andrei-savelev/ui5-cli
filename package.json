@@ -8,8 +8,8 @@
   },
   "scripts": {
     "lint": "node_modules/.bin/eslint --fix run.js",
-    "lint:watch":"watch 'npm run lint' run.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint:watch": "watch 'npm run lint' run.js",
+    "test": "node tests/runner"
   },
   "keywords": [
     "sapui5",
@@ -23,14 +23,22 @@
   "author": "Andrey Savelev",
   "license": "MIT",
   "devDependencies": {
+    "chai": "^4.1.2",
     "chalk": "^2.1.0",
     "clui": "^0.3.6",
     "eslint": "^4.8.0",
     "eslint-config-airbnb-base": "^12.0.2",
     "eslint-plugin-import": "^2.7.0",
     "get-installed-path": "^4.0.5",
+    "glob": "^7.1.2",
     "inquirer": "^3.3.0",
+    "lodash": "^4.17.4",
+    "mocha": "^4.0.1",
     "simple-git": "^1.79.0",
+    "temp": "^0.8.3",
     "yargs": "^9.0.1"
+  },
+  "dependencies": {
+    "fs-extra": "^4.0.2"
   }
 }
