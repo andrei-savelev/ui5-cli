@@ -44,7 +44,7 @@ describe('storeConfigProp()', () => {
     Promise.resolve()
       .then(() => storeConfigProp(...PROP_SETTINGS))
       .then(() => storeConfigProp(
-        `NEW${PROP_SETTINGS[0]}`, 
+        `NEW${PROP_SETTINGS[0]}`,
         `NEW${PROP_SETTINGS[1]}`
       ))
       .then(() => {
@@ -53,13 +53,13 @@ describe('storeConfigProp()', () => {
 
         expect(storedProps[PROP_SETTINGS[0]])
           .eq(
-            PROP_SETTINGS[1], 
+            PROP_SETTINGS[1],
             'Properties added before are not available'
           );
 
-          expect(storedProps[`NEW${PROP_SETTINGS[0]}`])
+        expect(storedProps[`NEW${PROP_SETTINGS[0]}`])
           .eq(
-            `NEW${PROP_SETTINGS[1]}`, 
+            `NEW${PROP_SETTINGS[1]}`,
             'Properties added after are not available'
           );
       })
