@@ -8,7 +8,7 @@
   },
   "scripts": {
     "lint": "node_modules/.bin/eslint utils/**/*.js",
-    "lint:watch": "watch 'npm run lint' run.js",
+    "lint:watch": "watch 'npm run lint' utils/**/*.js",
     "test": "node tests/runner"
   },
   "keywords": [
