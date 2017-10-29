@@ -7,7 +7,7 @@
     "git": "https://github.com/andreysavelev/ui5-cli"
   },
   "scripts": {
-    "lint": "node_modules/.bin/eslint --fix run.js",
+    "lint": "node_modules/.bin/eslint utils/**/*.js",
     "lint:watch": "watch 'npm run lint' run.js",
     "test": "node tests/runner"
   },
