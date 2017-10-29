@@ -19,13 +19,15 @@ exports.storeConfigProp = (propKey, propValue) => {
       if (error) {
         FS.writeFileSync(
           CONFIG_FILE_PATH,
-          JSON.stringify(propertyPair)
+          JSON.stringify(propertyPair, null, 2)
         );
       } else {
-        existPairs = FS.readFileSync(CONFIG_FILE_PATH);
-        existPairs[propKey] = propertyPair;
-
-        FS.writeFileSync(CONFIG_FILE_PATH, existPairs);
+        existPairs = JSON.parse(FS.readFileSync(CONFIG_FILE_PATH, 'utf8'));
+        
+        FS.writeFileSync(
+          CONFIG_FILE_PATH, 
+          JSON.stringify(Object.assign(existPairs, propertyPair), null, 2)
+        );
       }
       resolve();
     });

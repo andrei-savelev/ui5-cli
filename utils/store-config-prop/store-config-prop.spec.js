@@ -1,21 +1,67 @@
 const fs = require('fs');
 const { storeConfigProp } = require('./store-config-prop');
-
 const { expect } = require('chai');
 
+const TEST_SETTINGS = [
+  './ui5.config.json',
+  'utf8'
+];
+
 describe('storeConfigProp()', () => {
-  it('Should store config props pair', (done) => {
-    const PROP_KEY = 'propKey';
-    const PROP_VALUE = 'propValue';
+  afterEach(() => {
+    fs.unlinkSync(TEST_SETTINGS[0]);
+  });
+
+  it('Should store config props pair for the fist time', (done) => {
+    const PROP_SETTINGS = [
+      'propKey',
+      'propValue'
+    ];
     let storedProps;
 
     Promise.resolve()
-      .then(() => storeConfigProp(PROP_KEY, PROP_VALUE))
+      .then(() => storeConfigProp(...PROP_SETTINGS))
       .then(() => {
-        storedProps = fs.readFileSync('./ui5.config.json', 'utf8');
+        storedProps = fs.readFileSync(...TEST_SETTINGS);
         storedProps = JSON.parse(storedProps);
 
-        expect(storedProps[PROP_KEY]).eq(PROP_VALUE);
+        expect(storedProps[PROP_SETTINGS[0]]).eq(PROP_SETTINGS[1]);
+      })
+      .then(() => {
+        done();
+      })
+      /* eslint no-console: 0 */
+      .catch(e => console.error(e));
+  });
+
+  it('Should add new config props pair to existing properties', (done) => {
+    const PROP_SETTINGS = [
+      'propKey',
+      'propValue'
+    ];
+    let storedProps;
+
+    Promise.resolve()
+      .then(() => storeConfigProp(...PROP_SETTINGS))
+      .then(() => storeConfigProp(
+        `NEW${PROP_SETTINGS[0]}`, 
+        `NEW${PROP_SETTINGS[1]}`
+      ))
+      .then(() => {
+        storedProps = fs.readFileSync(...TEST_SETTINGS);
+        storedProps = JSON.parse(storedProps);
+
+        expect(storedProps[PROP_SETTINGS[0]])
+          .eq(
+            PROP_SETTINGS[1], 
+            'Properties added before are not available'
+          );
+
+          expect(storedProps[`NEW${PROP_SETTINGS[0]}`])
+          .eq(
+            `NEW${PROP_SETTINGS[1]}`, 
+            'Properties added after are not available'
+          );
       })
       .then(() => {
         done();
