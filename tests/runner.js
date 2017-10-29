@@ -1,7 +1,7 @@
 const glob = require('glob');
 const Mocha = require('mocha');
 
-let testFiles = glob.sync('utils/**/*-test.js');
+let testFiles = glob.sync('utils/**/*.spec.js');
 let reporter = process.env.MOCHA_REPORTER || (process.env.CI ? 'tap' : 'spec');
 let mocha = new Mocha({
     timeout: 5000,
