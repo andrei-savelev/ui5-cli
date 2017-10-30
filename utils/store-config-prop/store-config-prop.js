@@ -2,6 +2,8 @@ const FS = require('fs');
 
 /**
  * Store property key/value pair in the special ui5.config.json
+ * @public
+ * @since 1.0.0
  * @prop {string} propKey - Name of property
  * @prop {string} propValue - Value of property
  * @return {Promise} Promise
